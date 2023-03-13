@@ -32,7 +32,7 @@ public:
             // 先入右子树，这样的话最后一个遍历的节点一定是最后一层、最左边的节点
             if(curNode->right != nullptr)
                 que.push(curNode->right);
-            if(curNode->right != nullptr)
+            if(curNode->left != nullptr)
                 que.push(curNode->left);
         }
         return curNode->val;

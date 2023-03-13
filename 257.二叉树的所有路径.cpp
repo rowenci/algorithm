@@ -19,11 +19,13 @@
 class Solution {
 public:
     void traversal(TreeNode* node, string path, vector<string>& result){
-        path += to_string(node->val);
+        path += to_string(node->val);   // 前序遍历
+        // 终止条件
         if(node->left == nullptr && node->right == nullptr){
             result.push_back(path); // 找到根节点，将当前路径加入到result当中
             return;
         }
+        // 单层循环逻辑
         if(node->left) traversal(node->left, path + "->", result);
         if(node->right) traversal(node->right, path + "->", result);
     }
