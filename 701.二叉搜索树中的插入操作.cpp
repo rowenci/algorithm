@@ -18,11 +18,14 @@
  */
 class Solution {
 public:
+    // 参数与返回值
     TreeNode* inorder(TreeNode* node, int val){
+        // 终止条件找到空节点就进行插入
         if(node == nullptr){
             TreeNode* tn = new TreeNode(val);
             return tn;
         }
+        // 单层递归逻辑
         if(node->val > val)
             node->left = inorder(node->left, val);
         if(node->val < val)
