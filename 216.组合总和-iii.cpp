@@ -7,19 +7,26 @@
 // @lc code=start
 class Solution {
 public:
-    vector<int> item;
     vector<vector<int>> res;
-    void backTrace(int k, int n, int startNumber){
+    vector<int> item;
+    void backTrace(int k, int n, int sum, int startNumber){
+        if(sum > n)
+            return;
         if(item.size() == k){
-            res.push_back(item);
+            if (sum == n) 
+                res.push_back(item);
             return;
         }
-        for(int i = startNumber; i <= 9; i++){
-
+        for(int i = startNumber; i <= 9 - (k - item.size()) + 1; i++){
+            sum += i;
+            item.push_back(i);
+            backTrace(k, n, sum, i + 1);
+            sum -= i;
+            item.pop_back();
         }
     }
     vector<vector<int>> combinationSum3(int k, int n) {
-        backTrace(k, n, 1);
+        backTrace(k, n, 0, 1);
         return res;
     }
 };

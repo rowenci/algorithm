@@ -5,6 +5,11 @@
  */
 
 // @lc code=start
+/*
+递归函数的返回值以及参数
+回溯函数终止条件
+单层搜索的过程
+*/
 class Solution {
     vector<vector<int>> res;
     vector<int> path;
@@ -15,9 +20,9 @@ class Solution {
         }
         // for(int i = startIndex; i <= n; i++){
         for(int i = startIndex; i <= n - (k - path.size()) + 1; i++){
-            path.push_back(i);
-            backtracking(n, k, i + 1);
-            path.pop_back();
+            path.push_back(i);  // 处理节点
+            backtracking(n, k, i + 1);  // 递归
+            path.pop_back();    // 回溯，撤销处理的节点
         }
     }
 public:
