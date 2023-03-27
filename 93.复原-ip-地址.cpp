@@ -10,12 +10,14 @@ public:
     vector<string> res;
     void backTrace(const string& s, int startIndex, int pointNum){
         if(pointNum == 3){
+            // 传进去的没有点
             if(isValid(s, startIndex, s.size() - 1))
                 res.push_back(s);
             return;
         }
 
         for(int i = startIndex; i < s.size(); i++){
+            // 传进去的没有点
             if(isValid(s, startIndex, i)){
                 s.insert(s.begin() + i + 1, '.');
                 pointNum++;
