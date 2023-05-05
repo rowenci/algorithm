@@ -13,9 +13,9 @@ public:
     int eraseOverlapIntervals(vector<vector<int>>& intervals) {
         if(intervals.size() == 0)
             return 0;
-        sort(intervals.begin(), intervals.end(), cmp);
-        int count = 1;
-        int end = intervals[0][1];
+        sort(intervals.begin(), intervals.end(), cmp);  // 按区间末尾排序
+        int count = 1;  // 记录非交叉区间的个数
+        int end = intervals[0][1];  // 记录区间分割点
         for(int i = 1; i < intervals.size(); i++){
             if(end <= intervals[i][0]){
                 end = intervals[i][1];
